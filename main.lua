@@ -2063,5 +2063,18 @@ print("Murder Mystery 2 Script загружен!")
 
 end -- Конец функции LoadMainScript
 
--- Запуск скрипта с экраном загрузки
+-- [[ MENÜ AÇMA / KAPATMA KONTROLÜ ]] --
+local UserInputService = game:GetService("UserInputService")
+
+UserInputService.InputBegan:Connect(function(input, gameProcessed)
+    if not gameProcessed then
+        -- Insert tuşu kontrolü
+        if input.KeyCode == Enum.KeyCode.Insert then
+            MainFrame.Visible = not MainFrame.Visible
+        end
+    end
+end)
+
+-- Hileyi başlatan ana komut (Zaten sendeydi)
+LoadMainScript()
 LoadMainScript()
